@@ -9,12 +9,13 @@ import usePagination from "../hooks/usePagination";
 // Components
 import Pagination from "./Pagination";
 import Title from "./Title";
+import Loader from "./Loader";
 
 const Container = ({ query, title, array, component: ItemList }) => {
     const [offset, setOffset] = usePagination();
     const { loading, error, data } = useQuery(query, { variables: { limit: 10, offset } });
 
-    if (loading) return <div>Loading...</div>
+    if (loading) return <Loader />
     if (error) return <div>Error!</div>
 
     return (
