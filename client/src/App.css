@@ -1,0 +1,39 @@
+.title {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.title div {
+    height: 2px;
+    width: 2em;
+    background-color: #FFF;
+}
+
+.sidebar {
+    position: absolute;
+    border-right: 1px solid #FFF;
+    width: 200px;
+    margin: 0 10px;
+    height: 100%;
+}
+
+.sidebarLogo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.sidebarItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebarItem img {
+    height: 40px;
+    width: 40px;
+}
+
+.sidebarItem div {
+    width: 100%;
+    text-align: center;
+}
