@@ -13,7 +13,7 @@ const usePagination = () => {
     useEffect(() => {
         history.push(`${location.pathname}?limit=10&offset=${offset}`);
         return () => { }
-    }, [offset, location.search, location.pathname, history]);
+    }, [offset, location.search]);
 
     return [offset, setOffset];
 }

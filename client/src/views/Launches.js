@@ -12,6 +12,7 @@ const LAUNCHES_QUERY = gql`
     launches(limit: $limit, offset: $offset) {
         records {
             mission_name
+            flight_number
         }
         count
     }

@@ -1,3 +1,4 @@
+/* Title */
 .title {
     font-size: 2em;
     margin: 10px 0;
@@ -9,6 +10,7 @@
     background-color: #FFF;
 }
 
+/* Sidebar */
 .sidebar {
     position: absolute;
     border-right: 1px solid #FFF;
@@ -38,6 +40,7 @@
     text-align: center;
 }
 
+/* Loader */
 .loader {
   border: 5px solid #f3f3f3;
   border-top: 5px solid #000;
@@ -53,6 +56,12 @@
   animation: spin 2s linear infinite;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pagination */
 .pagination {
     display: flex;
     align-items: center;
@@ -72,9 +81,4 @@
 
 .pagination img {
     height: 100%;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
