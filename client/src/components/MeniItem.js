@@ -3,10 +3,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const MeniItem = ({ item: { path, icon, text } }) => (
-    <NavLink to={path} style={{ textDecoration: "none", color: "inherit" }}>
-        <div className="sidebarItem">
+    <NavLink
+        to={path}
+        exact
+        className="meniNavLink"
+        activeStyle={{ borderBottom: "2px solid #000" }}
+    >
+        <div className="appBarItem">
             <img alt="Icon" src={icon} />
-            <div >{text}</div>
+            <div>{text}</div>
         </div>
     </NavLink>
 );

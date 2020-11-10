@@ -20,7 +20,6 @@ const Container = ({ query, title, array, component: ItemList }) => {
 
     return (
         <>
-            <Title title={title} />
             <ItemList items={data[array].records} />
             <Pagination currentPage={Math.ceil((offset + 1) / 10)} setOffset={setOffset} totalPages={Math.ceil(data[array].count / 10)} />
         </>

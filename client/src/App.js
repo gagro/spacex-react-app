@@ -7,8 +7,8 @@ import { createBrowserHistory } from "history";
 import "./App.css";
 
 // Components
-import Sidebar from "./components/Sidebar";
-import Routes from "./components/Routes";
+import MainRouter from "./router/Router";
+import AppBar from "./components/AppBar";
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql",
@@ -21,8 +21,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router history={history} key={Math.random()}>
-        <Sidebar />
-        <Routes />
+        <AppBar />
+        <MainRouter />
       </Router>
     </ApolloProvider>
   );

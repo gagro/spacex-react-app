@@ -2,41 +2,77 @@
 .title {
     font-size: 2em;
     margin: 10px 0;
+    display: flex;
+    font-weight: 300;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .title div {
     height: 2px;
-    width: 2em;
+    width: 3em;
+    margin-top: 5px;
+    border-radius: 10px;
     background-color: #FFF;
 }
 
-/* Sidebar */
-.sidebar {
+/* AppBar */
+.header {
+    position: relative;
+}
+.header #logo {
+    vertical-align: top;
+    width: 100%;
+    height: 16em;
+}
+
+.meni {
     position: absolute;
-    border-right: 1px solid #FFF;
-    width: 200px;
-    margin: 0 10px;
-    height: 100%;
-}
-
-.sidebarLogo {
-    width: 200px;
-    margin-bottom: 20px;
-}
-
-.sidebarItem {
+    width: 100%;
+    top: 10%;
     display: flex;
     align-items: center;
-    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
 }
 
-.sidebarItem img {
-    height: 40px;
-    width: 40px;
+.meniTitle {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 0.5em;
 }
 
-.sidebarItem div {
-    width: 100%;
+.meniNavLink {
+    text-decoration: none;
+    color: inherit;
+    margin: 10px;
+    border-bottom: 2px solid transparent;
+}
+
+.appBarItem img {
+    height: 2.5em;
+}
+.appBarItem div {
+    font-size: 1em;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.meniTitle span {
+    font-weight: 600;
+}
+
+.meniItems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appBarItem {
+    color: #000;
     text-align: center;
 }
 
@@ -81,4 +117,25 @@
 
 .pagination img {
     height: 100%;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 600px) {
+    .header #logo {
+        height: 10em;
+    }
+    .appBarItem img {
+        height: 1.9em;
+    }
+    .meniTitle {
+        font-size: 1.3em;
+        margin-bottom: unset;
+    }
+    .appBarItem div {
+        font-size: 0.8em;
+    }
+    .meniNavLink {
+        margin: 5px;
+    }
 }
