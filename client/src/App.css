@@ -40,7 +40,7 @@
 
 .meniTitle {
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 300;
     margin-bottom: 0.5em;
 }
@@ -53,12 +53,13 @@
 }
 
 .appBarItem img {
-    height: 2.5em;
+    height: 2.3em;
 }
 .appBarItem div {
-    font-size: 1em;
+    font-size: 0.8em;
     margin: 5px 0;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .meniTitle span {
@@ -74,6 +75,10 @@
 .appBarItem {
     color: #000;
     text-align: center;
+}
+
+.container {
+    padding: 0 20%
 }
 
 /* Loader */
@@ -129,13 +134,22 @@
         height: 1.9em;
     }
     .meniTitle {
-        font-size: 1.3em;
+        font-size: 1.5em;
         margin-bottom: unset;
     }
+    .meni {
+        top: 6%;
+    }
     .appBarItem div {
-        font-size: 0.8em;
+        font-size: 0.6em;
     }
     .meniNavLink {
         margin: 5px;
+    }
+    .title {
+        font-size: 1.7em;
+    }
+    .container {
+        padding: unset;
     }
 }

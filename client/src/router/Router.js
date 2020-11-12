@@ -15,13 +15,14 @@ const Router = () => (
             return (
                 <Route
                     exact
+                    key={item.title}
                     path={path}
                     render={props =>
                         (
-                            <>
+                            <main className="container">
                                 <Title title={title} />
                                 <Component {...props} />
-                            </>
+                            </main>
                         )
                     }
                 />

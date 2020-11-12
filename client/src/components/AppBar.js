@@ -48,7 +48,7 @@ const AppBar = () => (
             </div>
             <div className="meniItems">
                 {meniItems.map(item => (
-                    <MeniItem item={item} />
+                    <MeniItem item={item} key={item.text} />
                 ))}
             </div>
         </div>

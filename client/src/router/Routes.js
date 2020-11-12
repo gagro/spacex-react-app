@@ -4,6 +4,7 @@ import { lazy } from "react";
 const Launches = lazy(() => import("../views/Launches"));
 const Missions = lazy(() => import("../views/Missions"));
 const Rockets = lazy(() => import("../views/Rockets"));
+const Dashboard = lazy(() => import("../views/Dashboard"));
 
 const routes = [
     {
@@ -20,6 +21,11 @@ const routes = [
         title: "Rockets",
         path: "rockets",
         component: Rockets,
+    },
+    {
+        title: "Dashboard",
+        path: "/",
+        component: Dashboard,
     }
 ];
 

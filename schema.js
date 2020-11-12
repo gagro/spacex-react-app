@@ -14,12 +14,13 @@ const {
 const LaunchType = new GraphQLObjectType({
   name: 'Launch',
   fields: () => ({
-    flight_number: { type: GraphQLInt },
     mission_name: { type: GraphQLString },
-    launch_year: { type: GraphQLString },
     launch_date_local: { type: GraphQLString },
     launch_success: { type: GraphQLBoolean },
-    rocket: { type: RocketType }
+    rocket: { type: RocketType },
+    launch_site: {
+      site_name: { type: GraphQLString }
+    }
   })
 });
 
@@ -73,6 +74,14 @@ const RocketTypeResponse = new GraphQLObjectType({
   })
 });
 
+const Latest = new GraphQLObjectType({
+  name: 'Latest',
+  fields: () => ({
+    launch: { type: LaunchType },
+    rocket: { type: RocketType }
+  })
+});
+
 // Root Query
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -121,6 +130,20 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(`https://api.spacexdata.com/v3/missions/${args.mission_id}`)
           .then(res => res.data)
+      },
+    },
+    latest: {
+      type: Latest,
+      resolve() {
+        const launchRequest = axios.get("https://api.spacexdata.com/v3/launches?sort=launch_time_unix");
+        const rocketRequest = axios.get("https://api.spacexdata.com/v3/rockets");
+
+        return axios.all([launchRequest, rocketRequest]).then(axios.spread((...responses) => {
+          const highestSuccessRate = Math.max.apply(Math, responses[1].data.map(item => item.success_rate_pct))
+          const latestLaunch = responses[0].data.sort((a, b) => b.launch_date_unix - a.launch_date_unix)
+
+          return ({ launch: latestLaunch[0], rocket: responses[1].data.find(item => item.success_rate_pct === highestSuccessRate) })
+        }))
       },
     },
     rockets: {
