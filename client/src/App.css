@@ -125,6 +125,19 @@
     color: #FFF;
 }
 
+.rocketFirstLaunch {
+    display: flex;
+    flex-direction: column;
+}
+
+.rocketFirstLaunch span {
+    font-size: 0.6em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #9E9E9E;
+    font-weight: 600;
+}
+
 /* Loader */
 .loader {
   border: 5px solid #f3f3f3;

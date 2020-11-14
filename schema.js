@@ -71,12 +71,17 @@ const MissionTypeResponse = new GraphQLObjectType({
 const RocketType = new GraphQLObjectType({
   name: 'Rocket',
   fields: () => ({
-    rocket_id: { type: GraphQLString },
     rocket_name: { type: GraphQLString },
     rocket_type: { type: GraphQLString },
     first_flight: { type: GraphQLString },
     cost_per_launch: { type: GraphQLInt },
-    success_rate_pct: { type: GraphQLInt }
+    success_rate_pct: { type: GraphQLInt },
+    active: { type: GraphQLBoolean },
+    company: { type: GraphQLString },
+    height: { type: GraphQLString },
+    mass: { type: GraphQLString },
+    diameter: { type: GraphQLString },
+    wikipedia: { type: GraphQLString },
   })
 });
 
@@ -155,10 +160,9 @@ const RootQuery = new GraphQLObjectType({
         return axios.all([launchRequest, rocketRequest]).then(axios.spread((...responses) => {
           const highestSuccessRate = Math.max.apply(Math, responses[1].data.map(item => item.success_rate_pct));
           const latestLaunch = responses[0].data.sort((a, b) => b.launch_date_unix - a.launch_date_unix);
+          const rocket = responses[1].data.find(item => item.success_rate_pct === highestSuccessRate);
 
-          console.log(responses[0].data[5])
-
-          return ({ launch: responses[0].data[5], rocket: responses[1].data.find(item => item.success_rate_pct === highestSuccessRate) })
+          return ({ launch: responses[0].data[5], rocket: { ...rocket, height: rocket.height.meters, diameter: rocket.diameter.meters, mass: rocket.mass.kg } })
         }))
       },
     },

@@ -6,12 +6,13 @@ import { gql, useQuery } from '@apollo/client';
 // Components
 import Loader from "../components/Loader";
 import Launch from "../components/Launch";
+import Rocket from "../components/Rocket";
 
 const DASHBOARD_QUERY = gql`
   query Latest {
     latest {
         launch {
-            mission_name
+             mission_name
             launch_date_unix
             launch_success
             rocket {
@@ -29,6 +30,16 @@ const DASHBOARD_QUERY = gql`
         }
         rocket {
             rocket_name
+            rocket_type
+            first_flight
+            cost_per_launch
+            success_rate_pct
+            active
+            company
+            height
+            mass
+            diameter
+            wikipedia
         }
     }
   }
@@ -36,18 +47,19 @@ const DASHBOARD_QUERY = gql`
 
 
 const Dashboard = () => {
-    const { loading, data, error } = useQuery(DASHBOARD_QUERY);
+  const { loading, data, error } = useQuery(DASHBOARD_QUERY);
 
-    if (loading) return <Loader />
-    if (error) return <div>Error !</div>
+  if (loading) return <Loader />
+  if (error) return <div>Error !</div>
 
-    const { launch, rocket } = data.latest;
+  const { launch, rocket } = data.latest;
 
-    return (
-        <div>
-            <Launch item={launch} />
-        </div>
-    )
+  return (
+    <div>
+      <Launch item={launch} />
+      <Rocket item={rocket} />
+    </div>
+  )
 }
 
 export default Dashboard;
