@@ -81,6 +81,50 @@
     padding: 0 20%
 }
 
+/* Launch */
+
+.launchContainer {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    font-weight: 300;
+    padding: 20px;
+    color: #000;
+    font-size: 1.1em;
+}
+
+.launchTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+.launchContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.launchList {
+    list-style-type: none;
+    padding: unset;
+}
+
+.launchLinks {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+.launchStatus {
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #FFF;
+}
+
 /* Loader */
 .loader {
   border: 5px solid #f3f3f3;
@@ -150,6 +194,9 @@
         font-size: 1.7em;
     }
     .container {
-        padding: unset;
+        padding: 0 5%;
+    }
+    .launchContainer {
+        font-size: 0.8em;
     }
 }

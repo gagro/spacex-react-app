@@ -7,7 +7,6 @@ const {
   GraphQLBoolean,
   GraphQLList,
   GraphQLSchema,
-  GraphQLInputObjectType
 } = require('graphql');
 
 // Launch Type
@@ -15,12 +14,27 @@ const LaunchType = new GraphQLObjectType({
   name: 'Launch',
   fields: () => ({
     mission_name: { type: GraphQLString },
-    launch_date_local: { type: GraphQLString },
+    launch_date_unix: { type: GraphQLInt },
     launch_success: { type: GraphQLBoolean },
     rocket: { type: RocketType },
-    launch_site: {
-      site_name: { type: GraphQLString }
-    }
+    launch_site: { type: LaunchSiteType },
+    links: { type: LinksType }
+  })
+});
+
+const LaunchSiteType = new GraphQLObjectType({
+  name: 'LaunchSite',
+  fields: () => ({
+    site_name: { type: GraphQLString }
+  })
+});
+
+const LinksType = new GraphQLObjectType({
+  name: 'Links',
+  fields: () => ({
+    wikipedia: { type: GraphQLString },
+    video_link: { type: GraphQLString },
+    mission_patch_small: { type: GraphQLString }
   })
 });
 
@@ -135,14 +149,16 @@ const RootQuery = new GraphQLObjectType({
     latest: {
       type: Latest,
       resolve() {
-        const launchRequest = axios.get("https://api.spacexdata.com/v3/launches?sort=launch_time_unix");
+        const launchRequest = axios.get("https://api.spacexdata.com/v3/launches");
         const rocketRequest = axios.get("https://api.spacexdata.com/v3/rockets");
 
         return axios.all([launchRequest, rocketRequest]).then(axios.spread((...responses) => {
-          const highestSuccessRate = Math.max.apply(Math, responses[1].data.map(item => item.success_rate_pct))
-          const latestLaunch = responses[0].data.sort((a, b) => b.launch_date_unix - a.launch_date_unix)
+          const highestSuccessRate = Math.max.apply(Math, responses[1].data.map(item => item.success_rate_pct));
+          const latestLaunch = responses[0].data.sort((a, b) => b.launch_date_unix - a.launch_date_unix);
 
-          return ({ launch: latestLaunch[0], rocket: responses[1].data.find(item => item.success_rate_pct === highestSuccessRate) })
+          console.log(responses[0].data[5])
+
+          return ({ launch: responses[0].data[5], rocket: responses[1].data.find(item => item.success_rate_pct === highestSuccessRate) })
         }))
       },
     },
