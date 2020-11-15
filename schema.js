@@ -162,7 +162,9 @@ const RootQuery = new GraphQLObjectType({
           const latestLaunch = responses[0].data.sort((a, b) => b.launch_date_unix - a.launch_date_unix);
           const rocket = responses[1].data.find(item => item.success_rate_pct === highestSuccessRate);
 
-          return ({ launch: responses[0].data[5], rocket: { ...rocket, height: rocket.height.meters, diameter: rocket.diameter.meters, mass: rocket.mass.kg } })
+          return ({
+            launch: latestLaunch[0], rocket: { ...rocket, height: rocket.height.meters, diameter: rocket.diameter.meters, mass: rocket.mass.kg }
+          })
         }))
       },
     },

@@ -1,7 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Link icons
 import wikipediaIcon from "../assets/wikipedia.svg"
+
+// Components
+import IconLink from "../components/IconLink";
 
 const RocketDetails = ({ children }) => (
   <div className="launchDetails">
@@ -64,9 +68,7 @@ const Rocket = ({ item }) => {
           {active ? "Active" : "Inactive"}
         </div>
         {wikipedia && (
-          <a href={wikipedia} target="_blank" style={{ textDecoration: "none", marginLeft: "10px" }}>
-            <img src={wikipediaIcon} alt="Wikipedia" />
-          </a>
+          <IconLink image={wikipediaIcon} link={wikipedia} />
         )}
       </div>
     </div>

@@ -3,16 +3,22 @@ import React from "react";
 // GraphQL
 import { gql, useQuery } from '@apollo/client';
 
+// Icons
+import githubIcon from "../assets/github.svg";
+import linkedinIcon from "../assets/linkedin.svg";
+
 // Components
 import Loader from "../components/Loader";
 import Launch from "../components/Launch";
+import SeeAll from "../components/SeeAll";
 import Rocket from "../components/Rocket";
+import IconLink from "../components/IconLink";
 
 const DASHBOARD_QUERY = gql`
   query Latest {
     latest {
         launch {
-             mission_name
+            mission_name
             launch_date_unix
             launch_success
             rocket {
@@ -56,8 +62,20 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Launch item={launch} />
-      <Rocket item={rocket} />
+      <div className="dashboardContainer">
+        <div className="dashboardContent">
+          <SeeAll link="/launches" text="Latest launch" />
+          <Launch item={launch} />
+        </div>
+        <div className="dashboardContent">
+          <SeeAll link="/rockets" text="Highest success rate %" />
+          <Rocket item={rocket} />
+        </div>
+      </div>
+      <div className="dashboardLinks">
+        <IconLink image={githubIcon} link="https://github.com/gagro" />
+        <IconLink image={linkedinIcon} link="https://www.linkedin.com/in/toni-gagro-7611b118b/" />
+      </div>
     </div>
   )
 }

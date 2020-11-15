@@ -5,14 +5,27 @@ import { gql } from '@apollo/client';
 
 // Components
 import Container from "../components/Container";
-import LaunchesList from "../components/LaunchesList";
+import Launch from "../components/Launch";
 
 const LAUNCHES_QUERY = gql`
   query LaunchesQuery($limit: Int!, $offset: Int!) {
     launches(limit: $limit, offset: $offset) {
         records {
             mission_name
-            flight_number
+            launch_date_unix
+            launch_success
+            rocket {
+              rocket_name
+              rocket_type
+            }
+            launch_site {
+              site_name
+            }
+            links {
+              wikipedia
+              video_link
+              mission_patch_small
+            }
         }
         count
     }
@@ -20,12 +33,12 @@ const LAUNCHES_QUERY = gql`
 `;
 
 const Launches = () => (
-    <Container
-        title="Launches"
-        array="launches"
-        component={LaunchesList}
-        query={LAUNCHES_QUERY}
-    />
+  <Container
+    title="Launches"
+    array="launches"
+    component={Launch}
+    query={LAUNCHES_QUERY}
+  />
 )
 
 export default Launches;

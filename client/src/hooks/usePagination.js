@@ -8,12 +8,17 @@ const usePagination = () => {
     const history = useHistory();
     const location = useLocation();
     const parsedQuery = queryString.parse(location.search);
-    const [offset, setOffset] = useState(parseInt(parsedQuery.offset) || 0);
+    const [offset, setOffset] = useState(0);
 
     useEffect(() => {
-        history.push(`${location.pathname}?limit=10&offset=${offset}`);
+        if (!parsedQuery.offset) setOffset(0);
         return () => { }
-    }, [offset, location.search]);
+    }, [location.search])
+
+    useEffect(() => {
+        history.replace(`${location.pathname}?offset=${offset}`);
+        return () => { }
+    }, [offset]);
 
     return [offset, setOffset];
 }

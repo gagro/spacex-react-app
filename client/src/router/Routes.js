@@ -19,7 +19,7 @@ const routes = [
     },
     {
         title: "Rockets",
-        path: "rockets",
+        path: "/rockets",
         component: Rockets,
     },
     {

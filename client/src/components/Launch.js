@@ -4,6 +4,9 @@ import React from "react";
 import wikipediaIcon from "../assets/wikipedia.svg"
 import youtubeIcon from "../assets/youtube.svg"
 
+//Components
+import IconLink from "../components/IconLink";
+
 const Launch = ({ item }) => {
     const {
         mission_name,
@@ -52,14 +55,10 @@ const Launch = ({ item }) => {
                             {launch_success ? "Successful" : "Failed"}
                         </div>
                         {wikipedia && (
-                            <a href={wikipedia} target="_blank" style={{ textDecoration: "none" }}>
-                                <img src={wikipediaIcon} alt="Wikipedia" />
-                            </a>
+                            <IconLink image={wikipediaIcon} link={wikipedia} />
                         )}
                         {video_link && (
-                            <a href={video_link} target="_blank" style={{ textDecoration: "none" }}>
-                                <img src={youtubeIcon} alt="Youtube" />
-                            </a>
+                            <IconLink image={youtubeIcon} link={video_link} />
                         )}
                     </div>
                 </div>

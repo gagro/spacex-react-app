@@ -78,7 +78,11 @@
 }
 
 .container {
-    padding: 0 20%
+    padding: 0 15%;
+}
+
+.container > div:nth-child(2) {
+    padding: 2em 0;
 }
 
 /* Launch */
@@ -87,6 +91,7 @@
     background-color: #FFFFFF;
     border-radius: 20px;
     font-weight: 300;
+    flex-grow: 1;
     padding: 20px;
     color: #000;
     font-size: 1.1em;
@@ -97,6 +102,7 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 10px;
+    height: 1em;
     font-size: 1.2em;
     border-bottom: 1px solid #CFCFCF;
 }
@@ -116,7 +122,11 @@
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    justify-content: space-between;
+}
+
+.launchLinks a {
+    margin-left: 15px;
+    display: flex;
 }
 
 .launchStatus {
@@ -138,6 +148,71 @@
     font-weight: 600;
 }
 
+.seeAllLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    padding-left: 10px;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.seeAllLink a {
+    color: inherit;
+    font-weight: 500;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    text-decoration: inherit;
+}
+
+.seeAllLink img {
+    padding-left: 10px;
+}
+
+.dashboardContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboardContent {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.iconLink {
+    text-decoration: none;
+}
+
+.dashboardLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+.dashboardLinks a {
+    margin: 0 5px
+}
+
+.responsiveContainer {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.responsiveItem {
+    width: 30%;
+    padding: 10px;
+    flex-grow: 1;
+}
+
 /* Loader */
 .loader {
   border: 5px solid #f3f3f3;
@@ -149,6 +224,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+  padding-top: unset !important;
+  padding-bottom: unset !important;
   width: 40px;
   height: 40px;
   animation: spin 2s linear infinite;
@@ -163,18 +240,15 @@
 .pagination {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    font-weight: 300;
 }
 
 .pagination div {
-    background-color: #FFF;
-    height: 15px;
-    width: 35px;
-    padding: 5px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 0 10px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    margin: 0 15px;
 }
 
 .pagination img {
@@ -183,7 +257,7 @@
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
     .header #logo {
         height: 10em;
     }
@@ -206,10 +280,43 @@
     .title {
         font-size: 1.7em;
     }
-    .container {
-        padding: 0 5%;
-    }
     .launchContainer {
         font-size: 0.8em;
+    }
+    
+    .seeAllLink {
+        font-size: 0.8em;
+    }
+    .responsiveItem {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1470px) {
+    .container {
+        padding: 0 10%
+    }
+    
+    .responsiveItem {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .responsiveItem {
+        width: 100%;
+        padding: 10px 0;
+    }
+    .responsiveContainer {
+        display: unset;
+    }
+    .dashboardContainer {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        padding: 0 5%;
     }
 }
