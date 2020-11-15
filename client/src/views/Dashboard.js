@@ -19,7 +19,7 @@ const DASHBOARD_QUERY = gql`
     latest {
         launch {
             mission_name
-            launch_date_unix
+            launch_date_local
             launch_success
             rocket {
               rocket_name

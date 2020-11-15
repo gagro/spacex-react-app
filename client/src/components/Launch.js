@@ -10,7 +10,7 @@ import IconLink from "../components/IconLink";
 const Launch = ({ item }) => {
     const {
         mission_name,
-        launch_date_unix,
+        launch_date_local,
         launch_success,
         rocket: {
             rocket_name,
@@ -26,10 +26,10 @@ const Launch = ({ item }) => {
         }
     } = item;
 
-    const date = new Date(launch_date_unix);
+    const date = new Date(launch_date_local);
     const launchDate =
         `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}
-            ${date.getHours()}:${date.getMinutes()}`;
+            ${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}`;
 
     return (
         <div className="launchContainer">

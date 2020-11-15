@@ -12,7 +12,7 @@ const LAUNCHES_QUERY = gql`
     launches(limit: $limit, offset: $offset) {
         records {
             mission_name
-            launch_date_unix
+            launch_date_local
             launch_success
             rocket {
               rocket_name

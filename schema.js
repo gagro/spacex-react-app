@@ -14,7 +14,7 @@ const LaunchType = new GraphQLObjectType({
   name: 'Launch',
   fields: () => ({
     mission_name: { type: GraphQLString },
-    launch_date_unix: { type: GraphQLInt },
+    launch_date_local: { type: GraphQLString },
     launch_success: { type: GraphQLBoolean },
     rocket: { type: RocketType },
     launch_site: { type: LaunchSiteType },
@@ -159,7 +159,7 @@ const RootQuery = new GraphQLObjectType({
 
         return axios.all([launchRequest, rocketRequest]).then(axios.spread((...responses) => {
           const highestSuccessRate = Math.max.apply(Math, responses[1].data.map(item => item.success_rate_pct));
-          const latestLaunch = responses[0].data.sort((a, b) => b.launch_date_unix - a.launch_date_unix);
+          const latestLaunch = responses[0].data.sort((a, b) => new Date(b.launch_date_local) - new Date(a.launch_date_local));
           const rocket = responses[1].data.find(item => item.success_rate_pct === highestSuccessRate);
 
           return ({
