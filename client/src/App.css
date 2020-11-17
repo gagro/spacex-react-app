@@ -108,7 +108,7 @@
 
 .launchContainer > img {
     width: 100%;
-    height: 15em;
+    height: 10em;
     flex-grow: 1;
     border-radius: 20px;
 }
@@ -141,11 +141,6 @@
     display: flex;
     align-items: center;
     text-transform: uppercase;
-}
-
-.launchLinks a {
-    margin-left: 15px;
-    display: flex;
 }
 
 .launchStatus {
@@ -212,6 +207,8 @@
 
 .iconLink {
     text-decoration: none;
+    display: flex;
+    margin-left: 15px;
 }
 
 .dashboardLinks {
@@ -244,6 +241,7 @@
     font-weight: 300;
     flex-grow: 1;
     display: flex;
+    justify-content: space-between;
     padding: 20px;
     margin: 10px 0;
     color: #000;
@@ -255,6 +253,21 @@
 .missionContainer:hover {
     transform: scale(1.02);
     transition: transform 300ms ease-in-out;
+}
+
+.missionInfo {
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+}
+
+.missionInfo > div:nth-child(2) {
+    margin-left: 20px;
+}
+
+.missionLinks {
+    display: flex;
+    align-items: center;
 }
 
 /* Loader */
@@ -325,7 +338,7 @@
     .title {
         font-size: 1.7em;
     }
-    .launchContainer {
+    .launchContainer, .missionContainer {
         font-size: 0.8em;
     }
     .seeAllLink {
@@ -361,10 +374,18 @@
     .dashboardContent {
         margin: 10px 0;
     }
+    
 }
 
 @media only screen and (max-width: 1000px) {
     .container {
         padding: 0 5%;
+    }
+    .missionInfo {
+        flex-direction: column;
+        align-items: unset;
+    }
+    .missionInfo > div:nth-child(2) {
+        margin-left: unset;
     }
 }

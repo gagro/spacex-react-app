@@ -1,5 +1,13 @@
 import React from "react";
 
+// Icons
+import wikipediaIcon from "../assets/wikipedia.svg";
+import webIcon from "../assets/www.svg";
+import youtubeIcon from "../assets/youtube.svg"
+
+// Components
+import IconLink from "./IconLink";
+
 const Mission = ({ item }) => {
     const {
         mission_name,
@@ -12,7 +20,7 @@ const Mission = ({ item }) => {
 
     return (
         <div className="missionContainer">
-            <div>
+            <div className="missionInfo">
                 <div>
                     <strong>{mission_name}</strong>{" "}
                     {mission_id}{" "}
@@ -20,9 +28,14 @@ const Mission = ({ item }) => {
                 <div>
                     Manufacturers:{" "}
                     {manufacturers.map(manufaturer => (
-                        <strong>{manufaturer}</strong>
+                        <strong className="itemList">{manufaturer}</strong>
                     ))}
                 </div>
+            </div>
+            <div className="missionLinks">
+                <IconLink image={webIcon} link={website} />
+                <IconLink image={youtubeIcon} link={twitter} />
+                <IconLink image={wikipediaIcon} link={wikipedia} />
             </div>
         </div>
     )
