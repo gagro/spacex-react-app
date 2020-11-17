@@ -11,7 +11,7 @@ import MainRouter from "./router/Router";
 import AppBar from "./components/AppBar";
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql",
+  uri: "http://localhost:5509/graphql",
   cache: new InMemoryCache()
 })
 

@@ -30,7 +30,6 @@ const ROCKETS_QUERY = gql`
 
 const Rockets = () => (
   <Container
-    title="Rockets"
     array="rockets"
     component={Rocket}
     query={ROCKETS_QUERY}

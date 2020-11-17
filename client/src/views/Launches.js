@@ -34,7 +34,6 @@ const LAUNCHES_QUERY = gql`
 
 const Launches = () => (
   <Container
-    title="Launches"
     array="launches"
     component={Launch}
     query={LAUNCHES_QUERY}
