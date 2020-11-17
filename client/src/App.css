@@ -97,6 +97,13 @@
     padding: 20px;
     color: #000;
     font-size: 1.1em;
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+.launchContainer:hover {
+    transform: scale(1.03);
+    transition: transform 200ms ease-in-out;
 }
 
 .launchContainer > img {
@@ -115,6 +122,10 @@
     border-bottom: 1px solid #CFCFCF;
 }
 
+.launchTitle > span {
+    text-align: center;
+}
+
 .launchContent {
     display: flex;
     align-items: center;
@@ -129,7 +140,6 @@
 .launchLinks {
     display: flex;
     align-items: center;
-    padding-top: 20px;
     text-transform: uppercase;
 }
 
@@ -156,6 +166,10 @@
     text-transform: uppercase;
     color: #9E9E9E;
     font-weight: 600;
+}
+
+.itemList:not(:last-of-type)::after {
+   content: ", "
 }
 
 .seeAllLink {
@@ -190,7 +204,7 @@
 }
 
 .dashboardContent {
-    margin: 5px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -222,6 +236,25 @@
     padding: 10px;
     display: flex;
     flex-grow: 1;
+}
+
+.missionContainer {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    font-weight: 300;
+    flex-grow: 1;
+    display: flex;
+    padding: 20px;
+    margin: 10px 0;
+    color: #000;
+    font-size: 1.1em;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+}
+
+.missionContainer:hover {
+    transform: scale(1.02);
+    transition: transform 300ms ease-in-out;
 }
 
 /* Loader */
@@ -295,13 +328,13 @@
     .launchContainer {
         font-size: 0.8em;
     }
-    
     .seeAllLink {
         font-size: 0.8em;
     }
     .responsiveItem {
         width: 45%;
     }
+    
 }
 
 @media only screen and (max-width: 1470px) {
@@ -324,6 +357,9 @@
     }
     .dashboardContainer {
         flex-direction: column;
+    }
+    .dashboardContent {
+        margin: 10px 0;
     }
 }
 

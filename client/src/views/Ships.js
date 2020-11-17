@@ -28,7 +28,6 @@ const SHIPS_QUERY = gql`
 
 const Ships = () => (
   <Container
-    title="Ships"
     array="ships"
     component={Ship}
     query={SHIPS_QUERY}

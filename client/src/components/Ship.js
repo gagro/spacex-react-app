@@ -37,23 +37,23 @@ const Ship = ({ item }) => {
                         <li>
                             Roles: {" "}
                             {roles.map(role => (
-                                <strong>{role}</strong>
+                                <strong className="itemList">{role}</strong>
                             ))}
                         </li>
                         <li>
-                            Weight: <strong>{weight_kg} kg</strong>
+                            Weight: <strong>{weight_kg ? `${weight_kg} kg` : "N/A"}</strong>
                         </li>
                         <li>
                             Missions: {" "}
                             {missions.map(mission => (
-                                <strong>{mission}, </strong>
+                                <strong className="itemList">{mission}</strong>
                             ))}
                         </li>
                     </ul>
                 </div>
             </div>
             <img src={image || noImage} alt="Image" />
-            <div className="launchLinks">
+            <div className="launchLinks" style={{ paddingTop: "20px" }}>
                 <div className="launchStatus" style={{ backgroundColor: active ? "#39a857" : "#9B0000" }}>
                     {active ? "Active" : "Inactive"}
                 </div>
