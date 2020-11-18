@@ -229,10 +229,17 @@
 }
 
 .responsiveItem {
-    width: 30%;
     padding: 10px;
     display: flex;
     flex-grow: 1;
+}
+
+.col-3 {
+    width: 30%;
+}
+
+.col-12 {
+    width: 100%;
 }
 
 .missionContainer {
@@ -243,7 +250,6 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin: 10px 0;
     color: #000;
     font-size: 1.1em;
     transform: scale(1);
@@ -338,14 +344,11 @@
     .title {
         font-size: 1.7em;
     }
-    .launchContainer, .missionContainer {
+    .launchContainer {
         font-size: 0.8em;
     }
     .seeAllLink {
         font-size: 0.8em;
-    }
-    .responsiveItem {
-        width: 45%;
     }
     
 }
@@ -355,15 +358,17 @@
         padding: 0 10%
     }
     
-    .responsiveItem {
+    .col-3 {
         width: 45%;
     }
 }
 
 @media only screen and (max-width: 700px) {
     .responsiveItem {
-        width: 100%;
         padding: 10px 0;
+    }
+    .col-3 {
+        width: 100%;
     }
     .responsiveContainer {
         display: unset;
@@ -373,6 +378,9 @@
     }
     .dashboardContent {
         margin: 10px 0;
+    }
+    .missionContainer {
+        font-size: 0.8em;
     }
     
 }

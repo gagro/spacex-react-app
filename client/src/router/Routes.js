@@ -8,31 +8,31 @@ const Dashboard = lazy(() => import("../views/Dashboard"));
 const Ships = lazy(() => import("../views/Ships"));
 
 const routes = [
-    {
-        title: "Dashboard",
-        path: "/",
-        component: Dashboard,
-    },
-    {
-        title: "Launches",
-        path: "/launches",
-        component: Launches,
-    },
-    {
-        title: "Missions",
-        path: "/missions",
-        component: Missions,
-    },
-    {
-        title: "Rockets",
-        path: "/rockets",
-        component: Rockets,
-    },
-    {
-        title: "Ships",
-        path: "/ships",
-        component: Ships,
-    }
+   {
+      title: "Dashboard",
+      path: "/",
+      component: Dashboard,
+   },
+   {
+      title: "Launches",
+      path: "/launches",
+      component: Launches,
+   },
+   {
+      title: "Missions",
+      path: "/missions",
+      component: Missions,
+   },
+   {
+      title: "Rockets",
+      path: "/rockets",
+      component: Rockets,
+   },
+   {
+      title: "Ships",
+      path: "/ships",
+      component: Ships,
+   }
 ];
 
 export default routes;

@@ -11,48 +11,48 @@ import shipsIcon from "../assets/ships.svg";
 // Components
 import MeniItem from "./MeniItem";
 
-export const meniItems = [
-    {
-        path: "/",
-        icon: homeIcon,
-        text: "Home"
-    },
-    {
-        path: "/launches",
-        icon: launchesIcon,
-        text: "Launches"
-    },
-    {
-        path: "/missions",
-        icon: missionsIcon,
-        text: "Missions"
-    },
-    {
-        path: "/rockets",
-        icon: rocketsIcon,
-        text: "Rockets"
-    },
-    {
-        path: "/ships",
-        icon: shipsIcon,
-        text: "Ships"
-    }
+const meniItems = [
+   {
+      path: "/",
+      icon: homeIcon,
+      text: "Home"
+   },
+   {
+      path: "/launches",
+      icon: launchesIcon,
+      text: "Launches"
+   },
+   {
+      path: "/missions",
+      icon: missionsIcon,
+      text: "Missions"
+   },
+   {
+      path: "/rockets",
+      icon: rocketsIcon,
+      text: "Rockets"
+   },
+   {
+      path: "/ships",
+      icon: shipsIcon,
+      text: "Ships"
+   }
 ];
 
 const AppBar = () => (
-    <div className="header">
-        <img src={logo} id="logo" />
-        <div className="meni">
-            <div className="meniTitle">
-                SpaceX <span>Control</span> Center
-            </div>
-            <div className="meniItems">
-                {meniItems.map(item => (
-                    <MeniItem item={item} key={item.text} />
-                ))}
-            </div>
-        </div>
-    </div>
+   <div className="header">
+      <img src={logo} id="logo" />
+      <div className="meni">
+         <div className="meniTitle">
+            SpaceX <span>Control</span> Center
+         </div>
+         <div className="meniItems">
+            {meniItems.map(item => (
+               <MeniItem item={item} key={item.text} />
+            ))}
+         </div>
+      </div>
+   </div>
 )
 
 export default AppBar;

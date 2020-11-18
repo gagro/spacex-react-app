@@ -9,30 +9,31 @@ import Rocket from "../components/Rocket";
 
 const ROCKETS_QUERY = gql`
   query RocketsQuery($limit: Int!, $offset: Int!) {
-    rockets(limit: $limit, offset: $offset) {
-        records {
-            rocket_name
-            rocket_type
-            first_flight
-            cost_per_launch
-            success_rate_pct
-            active
-            company
-            height
-            mass
-            diameter
-            wikipedia
-        }
-        count
-    }
+   rockets(limit: $limit, offset: $offset) {
+      records {
+         rocket_name
+         rocket_type
+         first_flight
+         cost_per_launch
+         success_rate_pct
+         active
+         company
+         height
+         mass
+         diameter
+         wikipedia
+      }
+      count
+   }
   }
 `;
 
 const Rockets = () => (
   <Container
-    array="rockets"
-    component={Rocket}
-    query={ROCKETS_QUERY}
+      array="rockets"
+      col="col-3"
+      component={Rocket}
+      query={ROCKETS_QUERY}
   />
 )
 

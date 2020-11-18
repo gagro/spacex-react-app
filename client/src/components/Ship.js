@@ -10,59 +10,75 @@ import webIcon from "../assets/www.svg"
 import IconLink from "../components/IconLink";
 
 const Ship = ({ item }) => {
-    const {
-        ship_name,
-        ship_type,
-        roles,
-        weight_kg,
-        year_built,
-        active,
-        url,
-        image,
-        missions
-    } = item;
+   const {
+      ship_name,
+      ship_type,
+      roles,
+      weight_kg,
+      year_built,
+      active,
+      url,
+      image,
+      missions
+   } = item;
 
-    return (
-        <div className="launchContainer">
-            <div className="launchTitle">
-                <strong>{`${ship_name} (${ship_type})`}</strong>
-                <div className="rocketFirstLaunch">
-                    <span>Year built</span>
-                    {year_built || "N/A"}
-                </div>
+   return (
+      <div className="launchContainer">
+         <div className="launchTitle">
+            <strong>{`${ship_name} (${ship_type})`}</strong>
+            <div className="rocketFirstLaunch">
+               <span>Year built</span>
+               {year_built || "N/A"}
             </div>
-            <div className="launchContent">
-                <div className="launchDetails">
-                    <ul className="launchList">
-                        <li>
-                            Roles: {" "}
-                            {roles.map(role => (
-                                <strong className="itemList">{role}</strong>
-                            ))}
-                        </li>
-                        <li>
-                            Weight: <strong>{weight_kg ? `${weight_kg} kg` : "N/A"}</strong>
-                        </li>
-                        <li>
-                            Missions: {" "}
-                            {missions.map(mission => (
-                                <strong className="itemList">{mission}</strong>
-                            ))}
-                        </li>
-                    </ul>
-                </div>
+         </div>
+         <div className="launchContent">
+            <div className="launchDetails">
+               <ul className="launchList">
+                  <li>
+                     Roles: {" "}
+                     {roles.map(role => (
+                        <strong 
+                           className="itemList" 
+                           key={role}
+                        >
+                           {role}
+                        </strong>
+                     ))}
+                  </li>
+                  <li>
+                     Weight: 
+                     <strong>
+                        {weight_kg ? `${weight_kg} kg` : "N/A"}
+                     </strong>
+                  </li>
+                  <li>
+                     Missions: {" "}
+                     {missions.map(mission => (
+                        <strong 
+                           className="itemList" 
+                           key={mission}
+                        >
+                           {mission}
+                        </strong>
+                     ))}
+                  </li>
+               </ul>
             </div>
-            <img src={image || noImage} alt="Image" />
-            <div className="launchLinks" style={{ paddingTop: "20px" }}>
-                <div className="launchStatus" style={{ backgroundColor: active ? "#39a857" : "#9B0000" }}>
-                    {active ? "Active" : "Inactive"}
-                </div>
-                {url && (
-                    <IconLink image={webIcon} link={url} />
-                )}
+         </div>
+         <img src={image || noImage} alt="Image" />
+         <div className="launchLinks" style={{ paddingTop: "20px" }}>
+            <div 
+               className="launchStatus" 
+               style={{ backgroundColor: active ? "#39a857" : "#9B0000" }}
+            >
+               {active ? "Active" : "Inactive"}
             </div>
-        </div>
-    )
+            {url && (
+               <IconLink image={webIcon} link={url} />
+            )}
+         </div>
+      </div>
+   )
 }
 
 export default Ship;
