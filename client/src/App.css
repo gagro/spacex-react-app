@@ -1,4 +1,5 @@
 /* Title */
+
 .title {
     font-size: 2em;
     margin: 10px 0;
@@ -18,9 +19,11 @@
 }
 
 /* AppBar */
+
 .header {
     position: relative;
 }
+
 .header #logo {
     vertical-align: top;
     width: 100%;
@@ -55,6 +58,7 @@
 .appBarItem img {
     height: 2.3em;
 }
+
 .appBarItem div {
     font-size: 0.8em;
     margin: 5px 0;
@@ -77,17 +81,19 @@
     text-align: center;
 }
 
-.container {
+/* Main */
+
+.mainContainer {
     padding: 0 15%;
 }
 
-.container > div:nth-child(2) {
+.mainContainer > div:nth-child(2) {
     padding: 2em 0;
 }
 
-/* Launch */
+/* Launch, Rocket, Ship */
 
-.launchContainer {
+.contentContainer {
     background-color: #FFFFFF;
     border-radius: 20px;
     font-weight: 300;
@@ -101,19 +107,19 @@
     transition: transform 200ms ease-in-out;
 }
 
-.launchContainer:hover {
+.contentContainer:hover {
     transform: scale(1.03);
     transition: transform 200ms ease-in-out;
 }
 
-.launchContainer > img {
+.contentContainer > img {
     width: 100%;
     height: 10em;
     flex-grow: 1;
     border-radius: 20px;
 }
 
-.launchTitle {
+.contentTitle {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,40 +128,40 @@
     border-bottom: 1px solid #CFCFCF;
 }
 
-.launchTitle > span {
+.contentTitle > span {
     text-align: center;
 }
 
-.launchContent {
+.content {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.launchList {
+.contentList {
     list-style-type: none;
     padding: unset;
 }
 
-.launchLinks {
+.contentLinks {
     display: flex;
     align-items: center;
     text-transform: uppercase;
 }
 
-.launchStatus {
+.contentStatus {
     border-radius: 20px;
     padding: 5px 10px;
     color: #FFF;
 }
 
-.rocketFirstLaunch {
+.contentTitleInfo {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.rocketFirstLaunch span {
+.contentTitleInfo span {
     font-size: 0.6em;
     text-align: center;
     text-transform: uppercase;
@@ -166,6 +172,8 @@
 .itemList:not(:last-of-type)::after {
    content: ", "
 }
+
+/* See All */
 
 .seeAllLink {
     display: flex;
@@ -193,6 +201,8 @@
     padding-left: 10px;
 }
 
+/* Dashboard */
+
 .dashboardContainer {
     display: flex;
     justify-content: center;
@@ -205,12 +215,6 @@
     flex: 1;
 }
 
-.iconLink {
-    text-decoration: none;
-    display: flex;
-    margin-left: 15px;
-}
-
 .dashboardLinks {
     display: flex;
     align-items: center;
@@ -221,6 +225,16 @@
 .dashboardLinks a {
     margin: 0 5px
 }
+
+/* Icon link */
+
+.iconLink {
+    text-decoration: none;
+    display: flex;
+    margin-left: 15px;
+}
+
+/* Classes for responsiveness */
 
 .responsiveContainer {
     display: flex;
@@ -241,6 +255,8 @@
 .col-12 {
     width: 100%;
 }
+
+/* Mission */
 
 .missionContainer {
     background-color: #FFFFFF;
@@ -277,6 +293,7 @@
 }
 
 /* Loader */
+
 .loader {
   border: 5px solid #f3f3f3;
   border-top: 5px solid #000;
@@ -300,6 +317,7 @@
 }
 
 /* Pagination */
+
 .pagination {
     display: flex;
     align-items: center;
@@ -344,10 +362,7 @@
     .title {
         font-size: 1.7em;
     }
-    .launchContainer {
-        font-size: 0.8em;
-    }
-    .seeAllLink {
+    .contentContainer, .seeAllLink {
         font-size: 0.8em;
     }
     

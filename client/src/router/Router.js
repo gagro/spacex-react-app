@@ -9,24 +9,24 @@ import Title from "../components/Title";
 import routes from "./Routes";
 
 const Router = () => (
-   <Suspense fallback={<Loader />}>
-      {routes.map(item => {
-         const { path, title, component: Component } = item;
-         return (
-            <Route
-               exact
-               key={item.title}
-               path={path}
-               render={props => (
-                  <main className="container">
-                     <Title title={title} />
-                     <Component {...props} />
-                  </main>
-               )}
-            />
-         )
-      })}
-   </Suspense>
+    <Suspense fallback={<Loader />}>
+        {routes.map(item => {
+            const { path, title, component: Component } = item;
+            return (
+                <Route
+                    exact
+                    key={item.title}
+                    path={path}
+                    render={props => (
+                        <main className="mainContainer">
+                            <Title title={title} />
+                            <Component {...props} />
+                        </main>
+                    )}
+                />
+            )
+        })}
+    </Suspense>
 )
 
 export default Router;

@@ -10,6 +10,7 @@ const {
 } = require('graphql');
 
 // Launch Type
+
 const LaunchType = new GraphQLObjectType({
   name: 'Launch',
   fields: () => ({
@@ -47,6 +48,7 @@ const LaunchTypeResponse = new GraphQLObjectType({
 });
 
 // Mission Type
+
 const MissionType = new GraphQLObjectType({
   name: 'Mission',
   fields: () => ({
@@ -68,6 +70,7 @@ const MissionTypeResponse = new GraphQLObjectType({
 });
 
 // Rocket Type
+
 const RocketType = new GraphQLObjectType({
   name: 'Rocket',
   fields: () => ({
@@ -94,6 +97,7 @@ const RocketTypeResponse = new GraphQLObjectType({
 });
 
 // Latest
+
 const Latest = new GraphQLObjectType({
   name: 'Latest',
   fields: () => ({
@@ -103,6 +107,7 @@ const Latest = new GraphQLObjectType({
 });
 
 // Ship Type
+
 const ShipType = new GraphQLObjectType({
   name: 'Ship',
   fields: () => ({
@@ -139,7 +144,12 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(`https://api.spacexdata.com/v3/launches?limit=${args.limit}&offset=${args.offset}`)
-          .then(res => ({ records: res.data, count: res.headers["spacex-api-count"] }))
+          .then(res => (
+            {
+              records: res.data,
+              count: res.headers["spacex-api-count"]
+            }
+          ))
       },
     },
     missions: {
@@ -151,7 +161,12 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(`https://api.spacexdata.com/v3/missions?limit=${args.limit}&offset=${args.offset}`)
-          .then(res => ({ records: res.data, count: res.headers["spacex-api-count"] }))
+          .then(res => (
+            {
+              records: res.data,
+              count: res.headers["spacex-api-count"]
+            }
+          ))
       },
     },
     latest: {
@@ -166,7 +181,14 @@ const RootQuery = new GraphQLObjectType({
           const rocket = responses[1].data.find(item => item.success_rate_pct === highestSuccessRate);
 
           return ({
-            launch: latestLaunch[0], rocket: { ...rocket, height: rocket.height.meters, diameter: rocket.diameter.meters, mass: rocket.mass.kg }
+            launch: latestLaunch[0],
+            rocket:
+            {
+              ...rocket,
+              height: rocket.height.meters,
+              diameter: rocket.diameter.meters,
+              mass: rocket.mass.kg
+            }
           })
         }))
       },
@@ -181,9 +203,16 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(`https://api.spacexdata.com/v3/rockets?limit=${args.limit}&offset=${args.offset}`)
           .then(res => {
-            const response = { 
-              records: res.data.map(item => ({ ...item, height: item.height.meters, diameter: item.diameter.meters, mass: item.mass.kg })), 
-              count: res.headers["spacex-api-count"] 
+            const response = {
+              records: res.data.map(item => (
+                {
+                  ...item,
+                  height: item.height.meters,
+                  diameter: item.diameter.meters,
+                  mass: item.mass.kg
+                }
+              )),
+              count: res.headers["spacex-api-count"]
             }
 
             return response;
@@ -200,9 +229,14 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(`https://api.spacexdata.com/v3/ships?limit=${args.limit}&offset=${args.offset}`)
           .then(res => {
-            const response = { 
-              records: res.data.map(item => ({...item, missions: item.missions.map(mission => mission.name)})), 
-              count: res.headers["spacex-api-count"] 
+            const response = {
+              records: res.data.map(item => (
+                {
+                  ...item,
+                  missions: item.missions.map(mission => mission.name)
+                }
+              )),
+              count: res.headers["spacex-api-count"]
             }
 
             return response;

@@ -29,17 +29,17 @@ const Launch = ({ item }) => {
    const date = new Date(launch_date_local);
    const launchDate =
       `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}
-         ${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}`;
+      ${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}`;
 
    return (
-      <div className="launchContainer">
-         <div className="launchTitle">
+      <div className="contentContainer">
+         <div className="contentTitle">
             <strong>{mission_name}</strong>
             <span>{launchDate}</span>
          </div>
-         <div className="launchContent">
+         <div className="content">
             <div className="launchDetails">
-               <ul className="launchList">
+               <ul className="contentList">
                   <li>
                      Rocket: <strong>{rocket_name}</strong>
                   </li>
@@ -50,9 +50,9 @@ const Launch = ({ item }) => {
                      Launch site: <strong>{site_name}</strong>
                   </li>
                </ul>
-               <div className="launchLinks">
-                  <div 
-                     className="launchStatus" 
+               <div className="contentLinks">
+                  <div
+                     className="contentStatus"
                      style={{ backgroundColor: launch_success ? "#39a857" : "#9B0000" }}
                   >
                      {launch_success ? "Successful" : "Failed"}
@@ -66,10 +66,10 @@ const Launch = ({ item }) => {
                </div>
             </div>
             {mission_patch_small && (
-               <img 
-                  src={mission_patch_small} 
-                  alt="Image" 
-                  style={{ height: "6em" }} 
+               <img
+                  src={mission_patch_small}
+                  alt="Image"
+                  style={{ height: "6em" }}
                />
             )}
          </div>

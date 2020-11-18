@@ -23,22 +23,22 @@ const Ship = ({ item }) => {
    } = item;
 
    return (
-      <div className="launchContainer">
-         <div className="launchTitle">
+      <div className="contentContainer">
+         <div className="contentTitle">
             <strong>{`${ship_name} (${ship_type})`}</strong>
-            <div className="rocketFirstLaunch">
+            <div className="contentTitleInfo">
                <span>Year built</span>
                {year_built || "N/A"}
             </div>
          </div>
-         <div className="launchContent">
+         <div className="content">
             <div className="launchDetails">
-               <ul className="launchList">
+               <ul className="contentList">
                   <li>
                      Roles: {" "}
                      {roles.map(role => (
-                        <strong 
-                           className="itemList" 
+                        <strong
+                           className="itemList"
                            key={role}
                         >
                            {role}
@@ -46,7 +46,7 @@ const Ship = ({ item }) => {
                      ))}
                   </li>
                   <li>
-                     Weight: 
+                     Weight:
                      <strong>
                         {weight_kg ? `${weight_kg} kg` : "N/A"}
                      </strong>
@@ -54,8 +54,8 @@ const Ship = ({ item }) => {
                   <li>
                      Missions: {" "}
                      {missions.map(mission => (
-                        <strong 
-                           className="itemList" 
+                        <strong
+                           className="itemList"
                            key={mission}
                         >
                            {mission}
@@ -66,9 +66,9 @@ const Ship = ({ item }) => {
             </div>
          </div>
          <img src={image || noImage} alt="Image" />
-         <div className="launchLinks" style={{ paddingTop: "20px" }}>
-            <div 
-               className="launchStatus" 
+         <div className="contentLinks" style={{ paddingTop: "20px" }}>
+            <div
+               className="contentStatus"
                style={{ backgroundColor: active ? "#39a857" : "#9B0000" }}
             >
                {active ? "Active" : "Inactive"}
