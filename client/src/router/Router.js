@@ -9,7 +9,7 @@ import Title from "../components/Title";
 import routes from "./Routes";
 
 const Router = () => (
-   <Suspense fallback={Loader}>
+   <Suspense fallback={<Loader />}>
       {routes.map(item => {
          const { path, title, component: Component } = item;
          return (
