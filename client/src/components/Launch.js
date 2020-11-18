@@ -47,7 +47,7 @@ const Launch = ({ item }) => {
                      Rocket type: <strong>{rocket_type}</strong>
                   </li>
                   <li>
-                     Luanch site: <strong>{site_name}</strong>
+                     Launch site: <strong>{site_name}</strong>
                   </li>
                </ul>
                <div className="launchLinks">
