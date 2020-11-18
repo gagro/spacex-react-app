@@ -1,4 +1,4 @@
-### [Create React App](https://docs.spacexdata.com/) ReactJS, GraphQL, Apollo
+### [SpaceX Api](https://docs.spacexdata.com/) ReactJS, GraphQL, Apollo
 
 In the project directory, run:
 
