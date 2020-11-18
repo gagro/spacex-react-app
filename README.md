@@ -1,4 +1,4 @@
-### [SpaceX Api] (https://docs.spacexdata.com/) ReactJS, GraphQL, Apollo
+### [Create React App](https://docs.spacexdata.com/) ReactJS, GraphQL, Apollo
 
 In the project directory, run:
 
@@ -14,4 +14,4 @@ To use in development mode, in project directory run:
 
 Or just view the live app
 
-### [Live App] (http://toni-spacex.herokuapp.com/)
+### [Live App](http://toni-spacex.herokuapp.com/)
