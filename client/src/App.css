@@ -369,7 +369,7 @@
 }
 
 @media only screen and (max-width: 1470px) {
-    .container {
+    .mainContainer {
         padding: 0 10%
     }
     
@@ -401,7 +401,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .container {
+    .mainContainer {
         padding: 0 5%;
     }
     .missionInfo {
